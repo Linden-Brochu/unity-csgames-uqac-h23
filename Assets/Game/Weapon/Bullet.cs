@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        var speed = Time.deltaTime * 20;
+        /*var speed = Time.deltaTime * 20;
         if (Physics.Raycast(_t.position, _t.rotation.eulerAngles, out RaycastHit hit, speed + 1f))
         {
             Destroy(gameObject);
@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
         else
         {
             _t.position += _t.forward * speed;
-        }
+        }*/
     }
 
     private void OnDestroy()

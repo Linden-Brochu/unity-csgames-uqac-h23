@@ -43,8 +43,12 @@ public class Carbine : Weapon
 
     protected override void SpawnBullet()
     {
-        var bullet = Instantiate(_gm.Bullet, BulletSpawn.position, BulletSpawn.transform.rotation, _gm.Bullets.transform);
+
+        var bullet = Instantiate(_gm.Bullet, BulletSpawn.localPosition, BulletSpawn.transform.rotation, _gm.Bullets.transform);
+        Debug.Log(bullet.transform.position);
+        Debug.Log(BulletSpawn.position);
         var bulletTransform = bullet.GetComponent<Transform>();
         bulletTransform.rotation = BulletSpawn.transform.rotation;
+        
     }
 }

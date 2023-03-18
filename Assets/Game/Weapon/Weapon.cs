@@ -9,6 +9,9 @@ public abstract class Weapon : MonoBehaviour
 
     public int GetBullet => Bullet;
 
+    [SerializeField]
+    protected GameObject _muzzleFlash;
+
     // Start is called before the first frame update
     void Start()
     {
