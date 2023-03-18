@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [SerializeField]
+    protected Transform BulletSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
