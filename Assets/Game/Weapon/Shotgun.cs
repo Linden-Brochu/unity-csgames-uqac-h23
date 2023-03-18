@@ -27,4 +27,14 @@ public class Shotgun : Weapon
 
         }
     }
+
+    protected override void EndPewPew()
+    {
+
+    }
+
+    protected override void SpawnBullet()
+    {
+        
+    }
 }

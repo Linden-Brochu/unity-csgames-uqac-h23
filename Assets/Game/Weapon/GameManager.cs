@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject Bullet => _bullet;
 
+    [SerializeField]
+    private GameObject _bullets;
+
+    public GameObject Bullets => _bullets;
+
     // Start is called before the first frame update
     void Start()
     {
