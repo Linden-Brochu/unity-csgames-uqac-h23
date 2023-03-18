@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -8,12 +6,35 @@ public class Bullet : MonoBehaviour
 {
     public int timeToLive = 5;
 
+    private bool _isEnded = false;
+
+    [SerializeField]
+    private GameObject child;
+
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(timeToLive);
         coroutine = null;
-        Destroy(gameObject);
+        StartCoroutine(End());
     }
+
+    private IEnumerator End(bool withSound = false)
+    {
+        child.SetActive(false);
+        _isEnded = true;
+        if (withSound)
+        {
+            _audioData.Play();
+        }
+        
+        if (coroutine is not null)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    } 
 
     private Coroutine coroutine;
 
@@ -34,23 +55,18 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        var speed = Time.deltaTime * 20;
-        if (Physics.Raycast(_t.position, _t.rotation.eulerAngles, out RaycastHit hit, speed + 1f))
+        if (!_isEnded)
         {
-            Destroy(gameObject);
+            var speed = Time.deltaTime * 50;
+            if (Physics.Raycast(_t.position, _t.rotation.eulerAngles, out RaycastHit hit, speed + 5f))
+            {
+                StartCoroutine(End(true));
+            }
+            else
+            {
+                _t.position += _t.forward * speed;
+            }
         }
-        else
-        {
-            _t.position += _t.forward * speed;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        _audioData.Play();
-        if (coroutine is not null)
-        {
-            StopCoroutine(coroutine);
-        }
+        
     }
 }

@@ -15,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     public int GetBullet => bullet;
     
     protected AudioSource _audioData;
-    
+
     void Awake()
     {
         _audioData = GetComponent<AudioSource>();
@@ -27,16 +27,17 @@ public abstract class Weapon : MonoBehaviour
         {
             StartPewPew();
         }
-
+            
         if (Input.GetMouseButtonUp(0))
         {
             EndPewPew();
         }
-
+            
         if (Input.GetKeyDown(KeyCode.R))
         {
             bullet = initialBullet;
         }
+        
     }
 
     protected abstract void StartPewPew();
@@ -44,4 +45,8 @@ public abstract class Weapon : MonoBehaviour
     protected abstract void EndPewPew();
 
     protected abstract void SpawnBullet();
+
+    public abstract void Select();
+
+    public abstract void UnSelect();
 }

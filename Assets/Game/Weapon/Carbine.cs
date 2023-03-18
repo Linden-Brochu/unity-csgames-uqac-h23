@@ -10,8 +10,6 @@ public class Carbine : Weapon
 
     [SerializeField]
     private float timeBetweenBullet = 1f;
-    
-    private GameManager _gm;
 
     private bool _canShoot = true;
 
@@ -21,12 +19,6 @@ public class Carbine : Weapon
         SpawnBullet();
         yield return new WaitForSeconds(timeBetweenBullet);
         _canShoot = true;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _gm = GameManager.Manager;
     }
 
     protected override void StartPewPew()
@@ -47,9 +39,19 @@ public class Carbine : Weapon
 
     protected override void SpawnBullet()
     {
-        var bullet = Instantiate(_gm.Bullet, bulletSpawn.position, bulletSpawn.transform.rotation, _gm.Bullets.transform);
+        var bullet = Instantiate(GameManager.Manager.Bullet, bulletSpawn.position, bulletSpawn.transform.rotation, GameManager.Manager.Bullets.transform);
         var bulletTransform = bullet.GetComponent<Transform>();
         bulletTransform.rotation = bulletSpawn.transform.rotation;
+        
+    }
+
+    public override void Select()
+    {
+        _canShoot = true;
+    }
+
+    public override void UnSelect()
+    {
         
     }
 }

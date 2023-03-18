@@ -2,25 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private Weapon weapon;
+    private Weapon[] weapons;
 
+    [SerializeField] private int weaponIndex = 0;
+    
     [SerializeField]
     private TextMeshProUGUI text;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        text.text = weapon.GetBullet.ToString();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weapons[weaponIndex].gameObject.SetActive(false);
+            weapons[weaponIndex].UnSelect();
+            weaponIndex = 0;
+            weapons[weaponIndex].gameObject.SetActive(true);
+            weapons[weaponIndex].Select();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weapons[weaponIndex].gameObject.SetActive(false);
+            weapons[weaponIndex].UnSelect();
+            weaponIndex = 1;
+            weapons[weaponIndex].gameObject.SetActive(true);
+            weapons[weaponIndex].Select();
+        }
+        
+        
+        
+        text.text = weapons[weaponIndex].GetBullet.ToString();
     }
 }

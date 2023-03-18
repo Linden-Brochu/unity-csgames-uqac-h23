@@ -1,39 +1,58 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : Weapon
 {
+    [SerializeField]
+    protected Transform[] bulletSpawns;
+    
+    [SerializeField]
+    private float timeBetweenBullet = 1f;
+    
+    private bool _canShoot = true;
 
-    const int nb_bullets_per_shots = 8;
-    public GameObject Bullet_model;
-
-    // Start is called before the first frame update
-    void Start()
+    protected IEnumerator Shoot()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _canShoot = false;
+        SpawnBullet();
+        yield return new WaitForSeconds(timeBetweenBullet);
+        _canShoot = true;
     }
 
     protected override void StartPewPew()
     {
-        for (int i = 0; i < nb_bullets_per_shots; i++)
+        if (_canShoot && bullet > 0)
         {
-
+            StartCoroutine(Shoot());
+            GetComponentInChildren<MuzzleFlash>().Play();
+            _audioData.Play();
+            bullet--;
         }
     }
 
     protected override void EndPewPew()
     {
-
+        
     }
 
     protected override void SpawnBullet()
+    {
+        foreach (var spawn in bulletSpawns)
+        {
+            var bullet = Instantiate(GameManager.Manager.Bullet, spawn.position, spawn.transform.rotation, GameManager.Manager.Bullets.transform);
+            var bulletTransform = bullet.GetComponent<Transform>();
+            bulletTransform.rotation = spawn.transform.rotation;
+        }
+    }
+
+    public override void Select()
+    {
+        _canShoot = true;
+    }
+
+    public override void UnSelect()
     {
         
     }
