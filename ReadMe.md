@@ -3,6 +3,10 @@ Linden Brochu (Jersey)
 William Dumoulin (Kuruk)
 François Lemaire (Balnian)
 
+# Assets
+- Gun & bullet (3d / 2d): https://kenney.nl/assets/weapon-pack
+- Sounds: https://happysoulmusic.com/fire-weapons-sound-effects/ and https://f8studios.itch.io/snakes-second-authentic-gun-sounds-pack
+
  # Bienvenue à la compétition de développement Jeu Vidéo pour CS Games 2023!
 
 Contexte: Les vagues battent contre les murs, les nuages sont lourds et obscurs, et tous regardent l’horizon avec peur. Quelle chose pourra nous retourner l’espoir…? Les jeux vidéo, bien sûr! et c’est votre responsabilité de les créer!
