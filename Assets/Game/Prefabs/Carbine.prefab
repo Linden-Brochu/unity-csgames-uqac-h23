@@ -62,7 +62,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b4aaf4aa6b97f5344bdfc1bd08868f18, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 684a62a797136ff4083188c73cde8af6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
