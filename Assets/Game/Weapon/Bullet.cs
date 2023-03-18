@@ -40,10 +40,10 @@ public class Bullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("DESTROYED");
         if (coroutine is not null)
         {
             StopCoroutine(coroutine);
         }
+        // TODO : Add sound
     }
 }
