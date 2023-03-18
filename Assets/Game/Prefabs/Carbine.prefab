@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 1628039306088369235, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1628039306088369235, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
@@ -192,12 +192,17 @@ PrefabInstance:
     - target: {fileID: 1628039306088369235, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: -4.1002805e-19
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1628039306088369235, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 9.61e-43
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628039306908779584, guid: 62aaaac7601c2b74a9447283ab4efa82,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 1628039306908779586, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
@@ -207,7 +212,7 @@ PrefabInstance:
     - target: {fileID: 1628039306908779586, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.011
       objectReference: {fileID: 0}
     - target: {fileID: 1628039307806847302, guid: 62aaaac7601c2b74a9447283ab4efa82,
         type: 3}

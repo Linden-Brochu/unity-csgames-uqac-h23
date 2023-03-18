@@ -140,7 +140,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628039306908779613}
-  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.76, y: 0, z: -3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -148,7 +148,7 @@ Transform:
   - {fileID: 1628039306088369261}
   m_Father: {fileID: 1628039307806847303}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1628039306908779584
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4995,6 +4995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1628039307806847303}
+  - component: {fileID: -5151066931334748471}
   m_Layer: 0
   m_Name: Muzzle_flash
   m_TagString: Untagged
@@ -5018,3 +5019,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5151066931334748471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628039307806847302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98c3e5f38e4c8a4db4ec9c858503e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

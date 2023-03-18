@@ -34,6 +34,7 @@ public class Carbine : Weapon
         if (_canShoot)
         {
             StartCoroutine(Shoot());
+            GetComponentInChildren<MuzzleFlash>().Play();
         }
     }
 
