@@ -11,6 +11,9 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private GameObject child;
 
+    /// <summary>
+    /// Time to live coroutine
+    /// </summary>
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(timeToLive);
@@ -18,6 +21,10 @@ public class Bullet : MonoBehaviour
         StartCoroutine(End());
     }
 
+    /// <summary>
+    /// Start the destroy sequence of the bullet
+    /// </summary>
+    /// <param name="withSound"></param>
     private IEnumerator End(bool withSound = false)
     {
         child.SetActive(false);
@@ -36,6 +43,9 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     } 
 
+    /// <summary>
+    /// Movement Coroutine
+    /// </summary>
     private Coroutine coroutine;
 
     private Transform _t;

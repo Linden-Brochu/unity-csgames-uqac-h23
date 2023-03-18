@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
@@ -14,11 +11,11 @@ public abstract class Weapon : MonoBehaviour
     
     public int GetBullet => bullet;
     
-    protected AudioSource _audioData;
+    protected AudioSource AudioData;
 
     void Awake()
     {
-        _audioData = GetComponent<AudioSource>();
+        AudioData = GetComponent<AudioSource>();
     }
     
     private void Update()
@@ -43,8 +40,6 @@ public abstract class Weapon : MonoBehaviour
     protected abstract void StartPewPew();
 
     protected abstract void EndPewPew();
-
-    protected abstract void SpawnBullet();
 
     public abstract void Select();
 

@@ -51,7 +51,7 @@ MonoBehaviour:
   bullet: 20
   initialBullet: 20
   bulletSpawn: {fileID: 5823094729612008460}
-  timeBetweenBullet: 1
+  timeBetweenBullet: 0.4
 --- !u!82 &9099207638389085954
 AudioSource:
   m_ObjectHideFlags: 0

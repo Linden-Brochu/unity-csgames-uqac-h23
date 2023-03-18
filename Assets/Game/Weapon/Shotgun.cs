@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : Weapon
@@ -27,7 +25,7 @@ public class Shotgun : Weapon
         {
             StartCoroutine(Shoot());
             GetComponentInChildren<MuzzleFlash>().Play();
-            _audioData.Play();
+            AudioData.Play();
             bullet--;
         }
     }
@@ -37,7 +35,7 @@ public class Shotgun : Weapon
         
     }
 
-    protected override void SpawnBullet()
+    protected void SpawnBullet()
     {
         foreach (var spawn in bulletSpawns)
         {

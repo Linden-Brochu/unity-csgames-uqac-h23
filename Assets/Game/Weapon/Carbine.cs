@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Carbine : Weapon
 {
@@ -27,7 +25,7 @@ public class Carbine : Weapon
         {
             StartCoroutine(Shoot());
             GetComponentInChildren<MuzzleFlash>().Play();
-            _audioData.Play();
+            AudioData.Play();
             bullet--;
         }
     }
@@ -37,7 +35,7 @@ public class Carbine : Weapon
         
     }
 
-    protected override void SpawnBullet()
+    protected void SpawnBullet()
     {
         var bullet = Instantiate(GameManager.Manager.Bullet, bulletSpawn.position, bulletSpawn.transform.rotation, GameManager.Manager.Bullets.transform);
         var bulletTransform = bullet.GetComponent<Transform>();

@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
     private Weapon[] weapons;
 
-    [SerializeField] private int weaponIndex = 0;
+    [SerializeField]
+    private int weaponIndex = 0;
     
     [SerializeField]
     private TextMeshProUGUI text;
