@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Carbine : Weapon
 {
     [SerializeField]
-    protected Transform BulletSpawn;
+    protected Transform bulletSpawn;
 
     [SerializeField]
-    private float _timeBetweenBullet = 1f;
+    private float timeBetweenBullet = 1f;
     
     private GameManager _gm;
 
@@ -16,9 +17,9 @@ public class Carbine : Weapon
 
     protected IEnumerator Shoot()
     {
-        SpawnBullet();
         _canShoot = false;
-        yield return new WaitForSeconds(_timeBetweenBullet);
+        SpawnBullet();
+        yield return new WaitForSeconds(timeBetweenBullet);
         _canShoot = true;
     }
 
@@ -43,12 +44,9 @@ public class Carbine : Weapon
 
     protected override void SpawnBullet()
     {
-
-        var bullet = Instantiate(_gm.Bullet, BulletSpawn.localPosition, BulletSpawn.transform.rotation, _gm.Bullets.transform);
-        Debug.Log(bullet.transform.position);
-        Debug.Log(BulletSpawn.position);
+        var bullet = Instantiate(_gm.Bullet, bulletSpawn.position, bulletSpawn.transform.rotation, _gm.Bullets.transform);
         var bulletTransform = bullet.GetComponent<Transform>();
-        bulletTransform.rotation = BulletSpawn.transform.rotation;
+        bulletTransform.rotation = bulletSpawn.transform.rotation;
         
     }
 }

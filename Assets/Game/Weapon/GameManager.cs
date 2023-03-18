@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Manager;
 
-     [SerializeField]
-    private GameObject _bullet;
+    [SerializeField]
+    private GameObject bullet;
 
-    public GameObject Bullet => _bullet;
+    public GameObject Bullet => bullet;
 
     [SerializeField]
-    private GameObject _bullets;
+    private GameObject bullets;
 
-    public GameObject Bullets => _bullets;
+    public GameObject Bullets => bullets;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Manager = this;
     }
