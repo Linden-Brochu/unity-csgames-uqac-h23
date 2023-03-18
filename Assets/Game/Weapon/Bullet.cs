@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Bullet : MonoBehaviour
 {
     public int timeToLive = 5;
@@ -17,12 +19,17 @@ public class Bullet : MonoBehaviour
 
     private Transform _t;
 
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource _audioData;
+
+    private void Awake()
     {
         _t = transform;
+        _audioData = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {
         coroutine = StartCoroutine(Die());
-        GetComponent<Collider>();
     }
 
     void Update()
@@ -40,10 +47,10 @@ public class Bullet : MonoBehaviour
 
     private void OnDestroy()
     {
+        _audioData.Play();
         if (coroutine is not null)
         {
             StopCoroutine(coroutine);
         }
-        // TODO : Add sound
     }
 }

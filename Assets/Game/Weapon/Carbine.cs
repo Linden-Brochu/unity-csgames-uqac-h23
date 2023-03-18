@@ -31,10 +31,12 @@ public class Carbine : Weapon
 
     protected override void StartPewPew()
     {
-        if (_canShoot)
+        if (_canShoot && bullet > 0)
         {
             StartCoroutine(Shoot());
             GetComponentInChildren<MuzzleFlash>().Play();
+            _audioData.Play();
+            bullet--;
         }
     }
 

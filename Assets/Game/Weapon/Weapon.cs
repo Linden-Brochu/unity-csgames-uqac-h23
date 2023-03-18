@@ -1,24 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
-    protected int Bullet = 20;
-
-    public int GetBullet => Bullet;
+    protected int bullet = 20;
 
     [SerializeField]
-    protected GameObject _muzzleFlash;
-
-    // Start is called before the first frame update
-    void Start()
+    private int initialBullet = 20;
+    
+    public int GetBullet => bullet;
+    
+    protected AudioSource _audioData;
+    
+    void Awake()
     {
-        
+        _audioData = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
+    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,6 +31,11 @@ public abstract class Weapon : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             EndPewPew();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bullet = initialBullet;
         }
     }
 
